@@ -1,8 +1,8 @@
-package Tasks;
+package anagrams;
 
 import java.util.*;
 
-public class Task1 {
+public class Reverser {
 	public static void main(String[] args) {
 		String line, result;
 
