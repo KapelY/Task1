@@ -4,46 +4,43 @@ import java.util.*;
 
 public class Reverser {
 	public static void main(String[] args) {
-		String line, result;
-
+		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Input String:");
-		line = sc.nextLine();
-
-		result = reverseString(line);
-		System.out.println(result);
+		System.out.println(reverseString(sc.nextLine()));
 	}
 
 	public static String reverseString(String line) {
-		String resultString = "";
+		StringBuilder buffer = new StringBuilder();
+		String [] separatedString = line.split(" ");
 
-		for (String word : line.split(" ")) {
-			resultString += reverseWord(word) + " ";
+		for (String word : separatedString) {
+			buffer.append(reverseWord(word) + " ");
 		}
-		return resultString;
+		return buffer.toString();
 	}
 
 	public static String reverseWord(String word) {
-		String resultWord;
 		char[] charWord = word.toCharArray();
+		int firstIndex = 0;
+		int lastIndex = word.length() - 1;
 
-		for (int firstIndex = 0, lastIndex = word.length() - 1; firstIndex < lastIndex;) {
+		for (; firstIndex < lastIndex;) {
 			if (Character.isLetter(charWord[firstIndex])
 					&& Character.isLetter(charWord[lastIndex])) {
-				char temp = charWord[firstIndex];
+				char currentLetter = charWord[firstIndex];
 				charWord[firstIndex] = charWord[lastIndex];
-				charWord[lastIndex] = temp;
-				firstIndex += 1;
-				lastIndex -= 1;
+				charWord[lastIndex] = currentLetter;
+				firstIndex++;
+				lastIndex--;
 			}
 			if (!Character.isLetter(charWord[firstIndex])) {
-				firstIndex += 1;
+				firstIndex++;
 			}
 			if (!Character.isLetter(charWord[lastIndex])) {
-				lastIndex -= 1;
+				lastIndex--;
 			}
 		}
-		resultWord = String.copyValueOf(charWord);
-		return resultWord;
+		return new String(charWord);
 	}
 }
