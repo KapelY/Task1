@@ -14,10 +14,10 @@ public class Task1 {
 		System.out.println(result);
 	}
 
-	public static String reverseString(String input) {
+	public static String reverseString(String line) {
 		String resultString = "";
 
-		for (String word : input.split(" ")) {
+		for (String word : line.split(" ")) {
 			resultString += reverseWord(word) + " ";
 		}
 		return resultString;
@@ -27,20 +27,20 @@ public class Task1 {
 		String resultWord;
 		char[] charWord = word.toCharArray();
 
-		for (int front = 0, last = word.length() - 1; front < last;) {
-			if (Character.isLetter(charWord[front])
-					&& Character.isLetter(charWord[last])) {
-				char temp = charWord[front];
-				charWord[front] = charWord[last];
-				charWord[last] = temp;
-				front += 1;
-				last -= 1;
+		for (int firstIndex = 0, lastIndex = word.length() - 1; firstIndex < lastIndex;) {
+			if (Character.isLetter(charWord[firstIndex])
+					&& Character.isLetter(charWord[lastIndex])) {
+				char temp = charWord[firstIndex];
+				charWord[firstIndex] = charWord[lastIndex];
+				charWord[lastIndex] = temp;
+				firstIndex += 1;
+				lastIndex -= 1;
 			}
-			if (!Character.isLetter(charWord[front])) {
-				front += 1;
+			if (!Character.isLetter(charWord[firstIndex])) {
+				firstIndex += 1;
 			}
-			if (!Character.isLetter(charWord[last])) {
-				last -= 1;
+			if (!Character.isLetter(charWord[lastIndex])) {
+				lastIndex -= 1;
 			}
 		}
 		resultWord = String.copyValueOf(charWord);
