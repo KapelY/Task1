@@ -5,9 +5,9 @@ import java.util.*;
 public class Reverser {
 	public static void main(String[] args) {
 
-		Scanner sc = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("Input String:");
-		System.out.println(reverseString(sc.nextLine()));
+		System.out.println(reverseString(scanner.nextLine()));
 	}
 
 	public static String reverseString(String string) {
