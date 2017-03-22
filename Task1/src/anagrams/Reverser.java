@@ -10,14 +10,14 @@ public class Reverser {
 		System.out.println(reverseString(sc.nextLine()));
 	}
 
-	public static String reverseString(String line) {
-		StringBuilder buffer = new StringBuilder();
-		String [] separatedString = line.split(" ");
+	public static String reverseString(String srting) {
+		StringBuilder stringBuffer = new StringBuilder();
+		String [] separatedString = srting.split(" ");
 
 		for (String word : separatedString) {
-			buffer.append(reverseWord(word) + " ");
+			stringBuffer.append(reverseWord(word) + " ");
 		}
-		return buffer.toString();
+		return stringBuffer.toString();
 	}
 
 	public static String reverseWord(String word) {
@@ -25,7 +25,7 @@ public class Reverser {
 		int firstIndex = 0;
 		int lastIndex = word.length() - 1;
 
-		for (; firstIndex < lastIndex;) {
+		while (firstIndex < lastIndex) {
 			if (Character.isLetter(charWord[firstIndex])
 					&& Character.isLetter(charWord[lastIndex])) {
 				char currentLetter = charWord[firstIndex];
